@@ -1,0 +1,54 @@
+[* 
+* Title               : Areas of Geometric Shapes
+* Program Description : Write a Rat16S program to calculate
+* various geometric shapes.
+*]
+
+[*Area of a Triangle*] 
+function calculateTriangle(base:real, height:real)
+{
+	area := 0.5 * base * height;
+	return area;
+}
+
+[*Area of a Rectangle*]
+function calculateRectangle(height:real, width:real)
+{
+	area := width * height;
+	return area;
+}
+
+[*Area of a Square*]
+function calculateSquare(length:real)
+{
+	area := length * length;
+	return area;
+}
+
+[*Area of a Circle*]
+function calculateCircle(radius:real)
+{
+	area := PI * radius * radius;
+	return area;
+}
+
+$$
+	real base, height, area, width, length, PI, radius;
+$$
+
+	base := 10;
+	height := 15;
+ 	printf(calculateTriangle(base, height));
+
+	height := 15;
+	width := 20;
+	printf(calculateRectangle(height, width));
+
+	length := 10;
+	printf(calculateSquare(length));
+
+	PI := 3.14;
+	radius := 4;
+	printf(calculateCircle(radius));
+
+$$

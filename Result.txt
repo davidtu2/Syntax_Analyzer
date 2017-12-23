@@ -1,0 +1,393 @@
+Lexeme: function            	Token: Keyword
+<Rat16S> -> <Opt Function Definitions> $$ <Opt Declaration List> $$ <Statement List> $$
+<Opt Function Definitions> -> <Function Definitions> | <Empty>
+<Function Definitions> -> <Function> <Function Definitions'>
+<Function> -> function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
+Lexeme: calculatetriangle   	Token: Identifier
+<Identifier> -> calculatetriangle
+Lexeme: (                   	Token: Separator
+Lexeme: base                	Token: Identifier
+<Opt Parameter List> -> <Parameter List> | <Empty>
+<Parameter List> -> <Parameter> <Parameter List'>
+<Parameter> -> <IDs> : <Qualifier>
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> base
+Lexeme: :                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+<Empty> -> <Empty>
+Lexeme: real                	Token: Keyword
+<Qualifier> -> integer | boolean | real
+<Qualifier> -> real
+Lexeme: ,                   	Token: Separator
+<Parameter List'> -> <Empty> | , <Parameter List>
+Lexeme: height              	Token: Identifier
+<Parameter List> -> <Parameter> <Parameter List'>
+<Parameter> -> <IDs> : <Qualifier>
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> height
+Lexeme: :                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+<Empty> -> <Empty>
+Lexeme: real                	Token: Keyword
+<Qualifier> -> integer | boolean | real
+<Qualifier> -> real
+Lexeme: )                   	Token: Separator
+<Parameter List'> -> <Empty> | , <Parameter List>
+<Empty> -> <Empty>
+Lexeme: {                   	Token: Separator
+<Opt Declaration List> -> <Declaration List> | <Empty>
+<Empty> -> <Empty>
+<Body> -> { <Statement List> }
+Lexeme: area                	Token: Identifier
+<Statement List> -> <Statement> <Statement List'>
+<Statement> -> <Compound> | <Assign> | <If> | <Return> | <Write> | <Read> | <While>
+<Assign> -> <Identifier> := <Expression> ;
+<Identifier> -> area
+Lexeme: :=                  	Token: Operator
+Lexeme: 0.5                 	Token: Real
+<Expression> -> <Term> <Expression'>
+<Term> -> <Factor> <Term'>
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Real> ->0.5
+Lexeme: *                   	Token: Operator
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+Lexeme: base                	Token: Identifier
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> base
+Lexeme: *                   	Token: Operator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+Lexeme: height              	Token: Identifier
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> height
+Lexeme: ;                   	Token: Separator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+<Empty> -> <Empty>
+<Expression'> -> + <Term> <Expression'> | - <Term> <Expression'> | <Empty>
+<Empty> -> <Empty>
+Lexeme: return              	Token: Keyword
+<Statement List'> -> <Empty> | <Statement List>
+<Statement List> -> <Statement> <Statement List'>
+<Statement> -> <Compound> | <Assign> | <If> | <Return> | <Write> | <Read> | <While>
+<Return> -> return <Return'>
+Lexeme: area                	Token: Identifier
+<Return'> -> ; | <Expression> ;
+<Expression> -> <Term> <Expression'>
+<Term> -> <Factor> <Term'>
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> area
+Lexeme: ;                   	Token: Separator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+<Empty> -> <Empty>
+<Expression'> -> + <Term> <Expression'> | - <Term> <Expression'> | <Empty>
+<Empty> -> <Empty>
+Lexeme: }                   	Token: Separator
+<Statement List'> -> <Empty> | <Statement List>
+<Empty> -> <Empty>
+Lexeme: function            	Token: Keyword
+<Function Definitions'> -> <Empty> | <Funtion Definitions>
+<Function Definitions> -> <Function> <Function Definitions'>
+<Function> -> function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
+Lexeme: calculaterectangle  	Token: Identifier
+<Identifier> -> calculaterectangle
+Lexeme: (                   	Token: Separator
+Lexeme: height              	Token: Identifier
+<Opt Parameter List> -> <Parameter List> | <Empty>
+<Parameter List> -> <Parameter> <Parameter List'>
+<Parameter> -> <IDs> : <Qualifier>
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> height
+Lexeme: :                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+<Empty> -> <Empty>
+Lexeme: real                	Token: Keyword
+<Qualifier> -> integer | boolean | real
+<Qualifier> -> real
+Lexeme: ,                   	Token: Separator
+<Parameter List'> -> <Empty> | , <Parameter List>
+Lexeme: width               	Token: Identifier
+<Parameter List> -> <Parameter> <Parameter List'>
+<Parameter> -> <IDs> : <Qualifier>
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> width
+Lexeme: :                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+<Empty> -> <Empty>
+Lexeme: real                	Token: Keyword
+<Qualifier> -> integer | boolean | real
+<Qualifier> -> real
+Lexeme: )                   	Token: Separator
+<Parameter List'> -> <Empty> | , <Parameter List>
+<Empty> -> <Empty>
+Lexeme: {                   	Token: Separator
+<Opt Declaration List> -> <Declaration List> | <Empty>
+<Empty> -> <Empty>
+<Body> -> { <Statement List> }
+Lexeme: area                	Token: Identifier
+<Statement List> -> <Statement> <Statement List'>
+<Statement> -> <Compound> | <Assign> | <If> | <Return> | <Write> | <Read> | <While>
+<Assign> -> <Identifier> := <Expression> ;
+<Identifier> -> area
+Lexeme: :=                  	Token: Operator
+Lexeme: width               	Token: Identifier
+<Expression> -> <Term> <Expression'>
+<Term> -> <Factor> <Term'>
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> width
+Lexeme: *                   	Token: Operator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+Lexeme: height              	Token: Identifier
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> height
+Lexeme: ;                   	Token: Separator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+<Empty> -> <Empty>
+<Expression'> -> + <Term> <Expression'> | - <Term> <Expression'> | <Empty>
+<Empty> -> <Empty>
+Lexeme: return              	Token: Keyword
+<Statement List'> -> <Empty> | <Statement List>
+<Statement List> -> <Statement> <Statement List'>
+<Statement> -> <Compound> | <Assign> | <If> | <Return> | <Write> | <Read> | <While>
+<Return> -> return <Return'>
+Lexeme: area                	Token: Identifier
+<Return'> -> ; | <Expression> ;
+<Expression> -> <Term> <Expression'>
+<Term> -> <Factor> <Term'>
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> area
+Lexeme: ;                   	Token: Separator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+<Empty> -> <Empty>
+<Expression'> -> + <Term> <Expression'> | - <Term> <Expression'> | <Empty>
+<Empty> -> <Empty>
+Lexeme: }                   	Token: Separator
+<Statement List'> -> <Empty> | <Statement List>
+<Empty> -> <Empty>
+Lexeme: function            	Token: Keyword
+<Function Definitions'> -> <Empty> | <Funtion Definitions>
+<Function Definitions> -> <Function> <Function Definitions'>
+<Function> -> function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
+Lexeme: calculatesquare     	Token: Identifier
+<Identifier> -> calculatesquare
+Lexeme: (                   	Token: Separator
+Lexeme: length              	Token: Identifier
+<Opt Parameter List> -> <Parameter List> | <Empty>
+<Parameter List> -> <Parameter> <Parameter List'>
+<Parameter> -> <IDs> : <Qualifier>
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> length
+Lexeme: :                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+<Empty> -> <Empty>
+Lexeme: real                	Token: Keyword
+<Qualifier> -> integer | boolean | real
+<Qualifier> -> real
+Lexeme: )                   	Token: Separator
+<Parameter List'> -> <Empty> | , <Parameter List>
+<Empty> -> <Empty>
+Lexeme: {                   	Token: Separator
+<Opt Declaration List> -> <Declaration List> | <Empty>
+<Empty> -> <Empty>
+<Body> -> { <Statement List> }
+Lexeme: area                	Token: Identifier
+<Statement List> -> <Statement> <Statement List'>
+<Statement> -> <Compound> | <Assign> | <If> | <Return> | <Write> | <Read> | <While>
+<Assign> -> <Identifier> := <Expression> ;
+<Identifier> -> area
+Lexeme: :=                  	Token: Operator
+Lexeme: length              	Token: Identifier
+<Expression> -> <Term> <Expression'>
+<Term> -> <Factor> <Term'>
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> length
+Lexeme: *                   	Token: Operator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+Lexeme: length              	Token: Identifier
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> length
+Lexeme: ;                   	Token: Separator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+<Empty> -> <Empty>
+<Expression'> -> + <Term> <Expression'> | - <Term> <Expression'> | <Empty>
+<Empty> -> <Empty>
+Lexeme: return              	Token: Keyword
+<Statement List'> -> <Empty> | <Statement List>
+<Statement List> -> <Statement> <Statement List'>
+<Statement> -> <Compound> | <Assign> | <If> | <Return> | <Write> | <Read> | <While>
+<Return> -> return <Return'>
+Lexeme: area                	Token: Identifier
+<Return'> -> ; | <Expression> ;
+<Expression> -> <Term> <Expression'>
+<Term> -> <Factor> <Term'>
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> area
+Lexeme: ;                   	Token: Separator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+<Empty> -> <Empty>
+<Expression'> -> + <Term> <Expression'> | - <Term> <Expression'> | <Empty>
+<Empty> -> <Empty>
+Lexeme: }                   	Token: Separator
+<Statement List'> -> <Empty> | <Statement List>
+<Empty> -> <Empty>
+Lexeme: function            	Token: Keyword
+<Function Definitions'> -> <Empty> | <Funtion Definitions>
+<Function Definitions> -> <Function> <Function Definitions'>
+<Function> -> function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
+Lexeme: calculatecircle     	Token: Identifier
+<Identifier> -> calculatecircle
+Lexeme: (                   	Token: Separator
+Lexeme: radius              	Token: Identifier
+<Opt Parameter List> -> <Parameter List> | <Empty>
+<Parameter List> -> <Parameter> <Parameter List'>
+<Parameter> -> <IDs> : <Qualifier>
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> radius
+Lexeme: :                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+<Empty> -> <Empty>
+Lexeme: real                	Token: Keyword
+<Qualifier> -> integer | boolean | real
+<Qualifier> -> real
+Lexeme: )                   	Token: Separator
+<Parameter List'> -> <Empty> | , <Parameter List>
+<Empty> -> <Empty>
+Lexeme: {                   	Token: Separator
+<Opt Declaration List> -> <Declaration List> | <Empty>
+<Empty> -> <Empty>
+<Body> -> { <Statement List> }
+Lexeme: area                	Token: Identifier
+<Statement List> -> <Statement> <Statement List'>
+<Statement> -> <Compound> | <Assign> | <If> | <Return> | <Write> | <Read> | <While>
+<Assign> -> <Identifier> := <Expression> ;
+<Identifier> -> area
+Lexeme: :=                  	Token: Operator
+Lexeme: pi                  	Token: Identifier
+<Expression> -> <Term> <Expression'>
+<Term> -> <Factor> <Term'>
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> pi
+Lexeme: *                   	Token: Operator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+Lexeme: radius              	Token: Identifier
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> radius
+Lexeme: *                   	Token: Operator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+Lexeme: radius              	Token: Identifier
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> radius
+Lexeme: ;                   	Token: Separator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+<Empty> -> <Empty>
+<Expression'> -> + <Term> <Expression'> | - <Term> <Expression'> | <Empty>
+<Empty> -> <Empty>
+Lexeme: return              	Token: Keyword
+<Statement List'> -> <Empty> | <Statement List>
+<Statement List> -> <Statement> <Statement List'>
+<Statement> -> <Compound> | <Assign> | <If> | <Return> | <Write> | <Read> | <While>
+<Return> -> return <Return'>
+Lexeme: area                	Token: Identifier
+<Return'> -> ; | <Expression> ;
+<Expression> -> <Term> <Expression'>
+<Term> -> <Factor> <Term'>
+<Factor> -> - <Primary> | <Primary>
+<Primary> -> <Identifier> <Primary'> | <Integer> | ( <Expression> ) | <Real> | true | false
+<Identifier> -> area
+Lexeme: ;                   	Token: Separator
+<Primary'> -> <Empty> | ( <IDs> )
+<Empty> -> <Empty>
+<Term'> -> * <Factor> <Term'> | / <Factor> <Term'> | <Empty>
+<Empty> -> <Empty>
+<Expression'> -> + <Term> <Expression'> | - <Term> <Expression'> | <Empty>
+<Empty> -> <Empty>
+Lexeme: }                   	Token: Separator
+<Statement List'> -> <Empty> | <Statement List>
+<Empty> -> <Empty>
+Lexeme: $$                  	Token: Separator
+<Function Definitions'> -> <Empty> | <Funtion Definitions>
+<Empty> -> <Empty>
+Lexeme: real                	Token: Keyword
+<Opt Declaration List> -> <Declaration List> | <Empty>
+<Declaration List> -> <Declaration> ; <Declaration List'>
+<Declaration> -> <Qualifier> <IDs>
+<Qualifier> -> integer | boolean | real
+<Qualifier> -> real
+Lexeme: base                	Token: Identifier
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> base
+Lexeme: ,                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+Lexeme: height              	Token: Identifier
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> height
+Lexeme: ,                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+Lexeme: area                	Token: Identifier
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> area
+Lexeme: ,                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+Lexeme: width               	Token: Identifier
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> width
+Lexeme: ,                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+Lexeme: length              	Token: Identifier
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> length
+Lexeme: ,                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+Lexeme: pi                  	Token: Identifier
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> pi
+Lexeme: ,                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+Lexeme: radius              	Token: Identifier
+<IDs> -> <Identifier> <IDs'>
+<Identifier> -> radius
+Lexeme: ;                   	Token: Separator
+<IDs'> -> <Empty> | , <IDs>
+<Empty> -> <Empty>
+Lexeme: $$                  	Token: Separator
+<Declaration List'> -> <Empty> | <Declaration List>
+<Empty> -> <Empty>
+Lexeme: *                   	Token: Operator
+<Statement List> -> <Statement> <Statement List'>
+<Statement> -> <Compound> | <Assign> | <If> | <Return> | <Write> | <Read> | <While>
+ERROR at line 440: {, Identifier, if, return, printf, scanf, or while expected at statement(). Received Token: Operator and Lexeme: *

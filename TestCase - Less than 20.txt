@@ -1,0 +1,19 @@
+[* this is comment for this sample code which
+   converts  Fahrenheit into Celcius  *]
+
+function convert (fahr:integer)
+{
+           return 5*(fahr -32)/9;
+}
+
+$$
+     integer   low, high, step;   [* declarations *]
+
+$$
+     scanf (low, high, step);
+     while (low < high)  
+         {  printf (low);
+            printf  (convert  (low));
+            low := low + step;
+         } 
+$$
